@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="src/assets/favicon.ico" rel="shortcut icon" />
+  <title>momentum</title>
+</head>
+<body class="preload">
+  <header class="header">
+    <div class="player">
+      <div class="player-controls">
+        <div class="player-controls-main">
+          <button class="play-prev player-icon"></button>
+          <button class="play-pause play player-icon"></button>
+          <button class="play-next player-icon"></button>
+        </div>
+        <label class="play-track-label" for="play-track">
+          <input class="play-track" id="play-track" type="range"  min="0" max="100" value="0">
+        </label>
+        <div class="player-duration">00:00 | 0:00</div>
+        <div class="player-controls-volume">
+          <button class="volume player-icon"></button>
+          <label for="play-volume">
+            <input class="play-volume" id="play-volume" type="range" min="0" max="100" value="50">
+          </label>
+        </div>
+      </div>
+      <div class="divide-list">
+        <ul class="play-list"></ul>
+        <div class="stub"></div>
+      </div>
+    </div>
+    <div class="weather">
+      <label>
+        <input type="text" class="city" placeholder="Minsk"/>
+      </label>
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <label for="username"></label>
+      <input type="text" class="name" id="username" placeholder="[Enter name]"/>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="quotes">
+      <button class="change-quote"></button>
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+    <button class="settings"></button>
+    <div class="settings__menu">
+      <div class="settings__language">
+        <p class="settings__language-text">Language:</p>
+        <div class="settings__languages">
+          <input type="radio" name="language" value="english" id="settings__english" checked>
+          <label for="settings__english">English</label>
+          <span class="divider">|</span>
+          <input type="radio" name="language" value="russian" id="settings__russian">
+          <label for="settings__russian">Русский</label>
+        </div>
+      </div>
+      <div class="settings__background">
+        <p class="settings__background-text">Background source:</p>
+        <div class="settings__backgrounds">
+          <input type="radio" name="background" value="github" id="settings__github" checked>
+          <label for="settings__github">GitHub</label>
+          <span class="divider">|</span>
+          <input type="radio" name="background" value="unsplash" id="settings__unsplash">
+          <label for="settings__unsplash">Unsplash</label>
+          <span class="divider">|</span>
+          <input type="radio" name="background" value="flickr" id="settings__flickr">
+          <label for="settings__flickr">Flickr</label>
+        </div>
+      </div>
+      <div class="settings__background-additional unsplash">
+        <label for="background-tags-unsplash" class="tags-label">Tags:</label>
+        <input type="text" class="background-tags" data-source="unsplash"
+               id="background-tags-unsplash" placeholder="Enter tags comma separated, ex. 'nature,evening'">
+      </div>
+      <div class="settings__background-additional flickr">
+        <label for="background-tags-flickr" class="tags-label">Tags:</label>
+        <input type="text" class="background-tags" data-source="flickr"
+               id="background-tags-flickr" placeholder="Enter tags comma separated, ex. 'nature,evening'">
+      </div>
+      <div class="settings__show">
+        <p class="settings__show-text">Show / hide:</p>
+        <ul class="settings__show-items">
+          <li class="settings__show-item">
+            <label for="toggle-button-time" class="text time-label">Time</label>
+            <input type="checkbox" name="toggle" id="toggle-button-time" class="toggle-button" checked data-class="time"></li>
+          <li class="settings__show-item">
+            <label for="toggle-button-date" class="text date-label">Date</label>
+            <input type="checkbox" name="toggle" id="toggle-button-date" class="toggle-button" checked data-class="date">
+          </li>
+          <li class="settings__show-item">
+            <label for="toggle-button-greeting" class="text greeting-label">Greeting</label>
+            <input type="checkbox" name="toggle" id="toggle-button-greeting" class="toggle-button" checked data-class="greeting-container">
+          </li>
+          <li class="settings__show-item">
+            <label for="toggle-button-quotes" class="text quotes-label">Quotes</label>
+            <input type="checkbox" name="toggle" id="toggle-button-quotes" class="toggle-button" checked data-class="quotes">
+          </li>
+          <li class="settings__show-item">
+            <label for="toggle-button-weather" class="text weather-label">Weather</label>
+            <input type="checkbox" name="toggle" id="toggle-button-weather" class="toggle-button" checked data-class="weather">
+          </li>
+          <li class="settings__show-item">
+            <label for="toggle-button-player" class="text player-label">Audio Player</label>
+            <input type="checkbox" name="toggle" id="toggle-button-player" class="toggle-button" checked data-class="player">
+          </li>
+          <li class="settings__show-item">
+            <label for="toggle-button-todo" class="text todo-label">To Do List</label>
+            <input type="checkbox" name="toggle" id="toggle-button-todo" class="toggle-button" checked data-class="todo">
+          </li>
+        </ul>
+      </div>
+    </div>
+    <button class="todo__button todo">Todo</button>
+    <div class="todo__menu menu">
+      <div class="todo__header">
+        Task list:
+      </div>
+      <ul class="todo__items">
+        <li class="todo__item"><input id="task1" class="todo__checkbox" type="checkbox"><label for="task1" class="todo__label">Example task</label><button class="todo__delete"></button></li>
+      </ul>
+      <label for="todo-input">
+        <input type="text" id="todo-input" placeholder="New TODO">
+      </label>
+    </div>
+    <div class="footer__bottom-block">
+      <p class="footer__last-line">© 2021</p>
+      <p class="footer__last-line">The Rolling Scopes School</p>
+      <p class="footer__last-line"><a class="github-link"
+                                      href="https://github.com/valentine909/">valentine909</a></p>
+    </div>
+  </footer>
+</body>
+</html>
